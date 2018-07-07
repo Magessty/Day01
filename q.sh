@@ -1,0 +1,1 @@
+ldapsearch uid=$FT_USER
