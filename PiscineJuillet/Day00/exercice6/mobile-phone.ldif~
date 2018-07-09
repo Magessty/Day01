@@ -1,4 +1,0 @@
-dn:uid=rduquenn,ou=people,dc=42,dc=fr
-changetype: modify
-add: mobile
-mobile: 0650543109
