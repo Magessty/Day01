@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/06 08:24:59 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/08 17:17:40 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/09 12:20:29 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/09 12:31:48 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,20 @@
 
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	write(1 , &c, 1);
 }
 
-void	ft_print_comb(void)
+void	ft_print_combn(int n)
 {
-	int (a);
-	int (b);
-	int (c);
+	int b;
 
-	a = -1;
-	while (a++ < 7)
-	{
-		b = a;
-		while (b++ < 8)
-		{
-			c = b + 1;
-			while (c++ < 10)
-			{
-				ft_putchar(a + 48);
-				ft_putchar(b + 48);
-				ft_putchar(c + 47);
-				if (a !=7)
-				{
-					ft_putchar(',');
-					ft_putchar(' ');
-				}
-			}
-		}
-	}
+	while (n > 0)
+		b = (b - 1) * 10 + 9;
+	printf (b);
 }
 
-int		main(void)
+void	main(void)
 {
-	ft_print_comb();
+	ft_printcombn(5);
 	return (0);
 }
