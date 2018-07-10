@@ -6,7 +6,7 @@
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 10:54:19 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/09 12:05:22 by rduquenn         ###   ########.fr       */
+/*   Updated: 2018/07/10 12:34:51 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putzero(int n)
+void	ft_putzero(int zero)
 {
-	while (n > 0)
+	while (zero > 0)
 	{
 		ft_putchar(48);
-		n = n - 1;
+		zero = zero - 1;
 	}
 }
 
@@ -41,16 +41,16 @@ void	ft_putlimit(void)
 	ft_putchar(56);
 }
 
-void	ft_divider(int nb, int zero, int i)
+void	ft_divider(int *nb, int *zero, int *i)
 {
-	while (nb >= 10)
+	while (*nb >= 10)
 	{
-		if (nb % 10 == 0)
-			zero = zero + 1;
+		if (*nb % 10 == 0)
+			*zero = *zero + 1;
 		else
-			zero = 0;
-		i = i * 10;
-		nb = nb / 10;
+			*zero = 0;
+		*i = *i * 10;
+		*nb = *nb / 10;
 	}
 }
 
@@ -72,7 +72,7 @@ void	ft_putnbr(int nb)
 		nb1 = nb;
 		i = 1;
 		zero = 0;
-		ft_divider(nb, zero, i);
+		ft_divider(&nb, &zero, &i);
 		ft_putchar(nb + 48);
 		ft_putzero(zero);
 		nb1 = nb1 - (nb * i);
@@ -84,6 +84,6 @@ void	ft_putnbr(int nb)
 
 int		main(void)
 {
-	ft_putnbr(0);
+	ft_putnbr(2147483647);
 	return (0);
 }

@@ -1,52 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/06 08:24:59 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/09 17:24:49 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/10 15:46:38 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/10 16:28:16 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int		ft_strlen(char *str, int *i)
 {
-	write(1, &c, 1);
+	i = 0;
+	while (str[i])
+		i = i + 1;
 }
 
-void	ft_print_comb(void)
+char	*ft_strrev(char *str)
 {
-	int (a);
-	int (b);
-	int (c);
+	int i;
+	int j;
 
-	a = -1;
-	while (a++ < 7)
-	{
-		b = a;
-		while (b++ < 8)
-		{
-			c = b + 1;
-			while (c++ < 10)
-			{
-				ft_putchar(a + 48);
-				ft_putchar(b + 48);
-				ft_putchar(c + 47);
-				if (a !=7)
-				{
-					ft_putchar(',');
-					ft_putchar(' ');
-				}
-			}
-		}
-	}
+	ft_putlen(&str, &i);
+	j = 0;
+	while (j <= i)
+		j = j + 1;
 }
 
-int		main(void)
+int 	main();
 {
-	ft_print_comb();
-	return (0);
+	 char    *str = NULL;
+	 char matter[] = "Test string";
+		  
+	printf ("original string: %s\n", matter);
+	str = ft_strrev(matter);
+	if (str)
+		printf ("Reversed string: %s\n", str);
 }
