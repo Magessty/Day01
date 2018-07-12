@@ -1,33 +1,31 @@
-/* ************************************************************************** */
+2/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_eight_queens_puzzle.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/10 18:10:46 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/12 17:25:07 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/11 17:51:35 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/12 02:17:59 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_sqrt(int nb)
+void	ft_tableau(void)
 {
-	int i;
+	int tableau[8];
 
-	if (nb <= 0)
-		return (0);
-	else if (nb == 1)
-		return (1);
-	else
-	{
-		i = 2;
-		while (i * i < nb)
-		{
-			i = i + 1;
-		}
-		if (i * i == nb)
-			return (i);
-		else
-			return (0);
-	}
+	tableau[0] = 0;
+	tableau[1] = 0;
+	tableau[2] = 0;
+	tableau[3] = 0;
+	tableau[4] = 0;
+	tableau[5] = 0;
+	tableau[6] = 0;
+	tableau[7] = 0;
 }
+
+void	ft_colonne(int i)
+{
+	int
+	tableau[i] = 1;
+

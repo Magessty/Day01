@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_generic.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/10 18:10:46 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/12 17:25:07 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/12 16:53:12 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/12 17:02:57 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_sqrt(int nb)
-{
-	int i;
+#include <unistd.h>
 
-	if (nb <= 0)
-		return (0);
-	else if (nb == 1)
-		return (1);
-	else
-	{
-		i = 2;
-		while (i * i < nb)
-		{
-			i = i + 1;
-		}
-		if (i * i == nb)
-			return (i);
-		else
-			return (0);
-	}
+void	ft_generic(void)
+{
+	write(1, "Tut Tut ; Tut tut\n", 18);
 }

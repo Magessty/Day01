@@ -6,7 +6,7 @@
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 19:05:50 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/05 23:34:20 by rduquenn         ###   ########.fr       */
+/*   Updated: 2018/07/12 03:05:57 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	ft_print_alphabet(void)
 
 int		main(void)
 {
-	ft_print_alphabet(void);
+	ft_print_alphabet();
 	return (0);
 }

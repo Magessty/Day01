@@ -6,9 +6,11 @@
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 15:36:39 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/10 15:36:52 by rduquenn         ###   ########.fr       */
+/*   Updated: 2018/07/11 13:47:11 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+void	ft_putchar(char c);
 
 void	ft_putstr(char *str)
 {

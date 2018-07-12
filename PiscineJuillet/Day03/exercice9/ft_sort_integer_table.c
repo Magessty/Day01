@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/10 18:10:46 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/12 17:25:07 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/12 23:24:11 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/13 00:04:21 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_sqrt(int nb)
+void	ft_sort_integer_table(int *tab, int size)
 {
 	int i;
+	int nb;
+	int memory;
 
-	if (nb <= 0)
-		return (0);
-	else if (nb == 1)
-		return (1);
-	else
+	i = 0;
+	while (i < size)
 	{
-		i = 2;
-		while (i * i < nb)
+		i = i + 1;
+		if (tab[i] < tab[i - 1])
 		{
-			i = i + 1;
+			nb = i;
+			while (nb != 0 && tab[nb] < tab[nb - 1])
+			{
+				memory = tab[nb];
+				tab[nb] = tab[nb - 1];
+				tab[nb - 1] = memory;
+				nb = nb - 1;
+			}
 		}
-		if (i * i == nb)
-			return (i);
-		else
-			return (0);
 	}
 }

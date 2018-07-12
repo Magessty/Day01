@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_combn.c                                   :+:      :+:    :+:   */
+/*   ftprintcombn.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/09 12:20:29 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/10 13:28:01 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/11 23:22:14 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/12 03:44:04 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,112 +14,84 @@
 
 void	ft_putchar(char c)
 {
-	write(1 , &c, 1);
+	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb)
+void	ft_puttab(int *tab, int n)
 {
 	int i;
-	int nb1;
-
-	nb1 = nb;
-	i = 1;
-	while (nb >= 10)
-	{
-		i = i * 10;
-		nb = nb / 10;
-	}
-	ft_putchar(nb + 48);
-	nb1 = nb1 - (nb * i);
-	nb = nb1;
-	if (nb > 0)
-		ft_putnbr(nb);
-}
-
-int		ft_calculatemax(int n)
-{
-	int max;
-	int i;
-	int n1;
-	int jsp;
+	int condition;
 
 	i = 1;
-	n1 = n - 1;
-	while (n > 0)
+	condition = 42;
+	while (i < n)
 	{
-		n = n - 1;
-		i = i * 10;
+		if (tab[i - 1] >= tab[i])
+			condition = 0;
+		i = i + 1;
 	}
-	n = n1;
-	jsp = 9;
-	while (*n >= 0)
+	if (condition)
 	{
-		max = (jsp - n) * i / 10 + max;
-		n = n - 1;
-		i = i / 10;
-	}
-	ft_putnbr(max);
-}
-
-int		ft_putzero(int n, int nb)
-{
-	int i;
-
-	i = 1;
-	while (n > 0)
-	{
-		i = i * 10;
-		n = n - 1;
-	}
-	while (nb == nb % (i / 10))
-	{
-		ft_putchar(48);
-		i = i / 10;
+		i = 0;
+		while (i < n)
+		{
+			ft_putchar(tab[i] + 48);
+			i = i + 1;
+		}
+		if (tab[0] < 10 - n)
+		{
+			ft_putchar(',');
+			ft_putchar(' ');
+		}
 	}
 }
 
-int		ft_conditions(int *nb, int n)
+void	ft_n_one(int *i, int *n)
 {
-	int i;
-	int nb1;
-
-	nb1 = *nb;
-	i = 1;
-	while (n > 2)
-	{
-		n = n - 1;
-		i = i * 10;
-	}
-	while (nb1 % i == nb1 % (10 * i))
-			i = i / 10;
-	while (i >= 1)
-	{
-		while ((nb1 / i) % 10 <= (nb1 / (10 * i)) % 10)
-			nb1 = nb1 + i;
-		i = i / 10;
-	}
-	*nb = nb1;
+	if (*n == 1)
+		while (*i < 10)
+		{
+			ft_putchar(*i + 48);
+			if (*i != 9)
+			{
+				ft_putchar(',');
+				ft_putchar(' ');
+			}
+			*i = *i + 1;
+		}
 }
 
 void	ft_print_combn(int n)
 {
-	int nb;
-	int max;
+	int i;
+	int tab[n];
 
-	nb = 1;
-	ft_calculatemax(n);
-	while (nb < max)
+	i = 0;
+	ft_n_one(&i, &n);
+	while (i < n)
 	{
-		ft_conditions(&nb, n);
-		ft_putzero(n, nb);
-		ft_putnbr(nb);
-		ft_putchar(',');
-		ft_putchar(' ');
+		tab[i] = 0;
+		i = i + 1;
+	}
+	while (tab[0] <= (10 - n) && n > 1)
+	{
+		ft_puttab(tab, n);
+		tab[n - 1]++;
+		i = n;
+		while (i != 0 && n > 1)
+		{
+			i = i - 1;
+			if (tab[i] > 9)
+			{
+				tab[i - 1]++;
+				tab[i] = 0;
+			}
+		}
 	}
 }
 
 int		main(void)
 {
-	ft_print_combn(8);
+	ft_print_combn(9);
 	return (0);
 }

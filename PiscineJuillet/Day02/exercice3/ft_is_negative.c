@@ -6,7 +6,7 @@
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/06 08:03:27 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/06 08:22:53 by rduquenn         ###   ########.fr       */
+/*   Updated: 2018/07/12 03:08:11 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void	ft_is_negative(int n)
 
 int		main(void)
 {
-	ft_is_negative(-6);
+	ft_is_negative(6);
 	return (0);
 }

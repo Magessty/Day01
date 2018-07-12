@@ -6,7 +6,7 @@
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/06 16:30:16 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/08 20:52:55 by rduquenn         ###   ########.fr       */
+/*   Updated: 2018/07/12 10:19:43 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	ft_print_comb2(void)
 			ft_putnbr(n2);
 			if (n1 != 98)
 				ft_putcommas();
-			else
-				ft_putchar('\n');
 			n2 = n2 + 1;
 		}
 		n2 = 0;
