@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_rot42.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 16:20:43 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/13 01:08:27 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/13 03:22:17 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/13 03:22:29 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_prime(int nb)
+char	*ft_rot42(char *str)
 {
 	int i;
+	int i42;
 
-	if (nb == 2 || nb == 3 || nb == 5)
-		return (1);
-	else if (nb <= 1 || nb % 2 == 0 || nb % 3 == 0 || nb % 5 == 0)
-		return (0);
-	else
+	i = 0;
+	i42 = 42;
+	while (str[i])
 	{
-		i = 5;
-		while (i <= 46350 && nb % i != 0)
-			i = i + 2;
-		if (nb % i == 0 && nb != i)
-			return (0);
-		else
-			return (1);
+		while (i42)
+		{
+			if (str[i] < 127)
+				str[i] = str[i]++;
+			else
+				str[i] = 0;
+			i42 = i42 - 1;
+		}
 	}
-}
-
-int		ft_find_next_prime(int nb)
-{
-	if (nb < 0)
-		return (2);
-	while (ft_is_prime(nb) == 0)
-		nb = nb + 2;
-	return (nb);
+	return (str);
 }

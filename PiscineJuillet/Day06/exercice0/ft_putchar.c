@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/10 17:04:18 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/13 01:07:45 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/13 15:16:34 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/13 15:25:14 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_recursive_power(int nb, int power)
+#include <unistd.h>
+
+void	ft_putchar(char c)
 {
-	if (power < 0)
-		return (0);
-	else if (power == 0)
-		return (1);
-	else
-		return (nb * ft_recursive_power(nb, power - 1));
+	write(1, &c, 1);
 }
