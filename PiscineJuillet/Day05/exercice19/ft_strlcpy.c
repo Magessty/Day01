@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/16 08:27:09 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/16 09:55:24 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/16 08:48:17 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/16 09:26:47 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	int count;
-	int lendest;
 
-	lendest = 0;
-	while (dest[lendest])
-		lendest = lendest + 1;
 	count = 0;
-	while (src[count] && count < size - lendest - 1)
+	while (src[count] && count < size - 1)
 	{
-		dest[lendest + count] = src[count];
+		dest[count] = src[count];
 		count = count + 1;
 	}
-	dest[lendest + count] = '\0';
+	dest[count] = '\0';
 	while (src[count])
 		count = count + 1;
-	return (lendest + count);
+	return (count);
 }

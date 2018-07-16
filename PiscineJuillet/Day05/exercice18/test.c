@@ -1,31 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/16 08:27:09 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/16 09:55:24 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/16 09:27:35 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/16 09:34:05 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+int		main(int argc, char **argv)
 {
-	int count;
-	int lendest;
-
-	lendest = 0;
-	while (dest[lendest])
-		lendest = lendest + 1;
-	count = 0;
-	while (src[count] && count < size - lendest - 1)
-	{
-		dest[lendest + count] = src[count];
-		count = count + 1;
-	}
-	dest[lendest + count] = '\0';
-	while (src[count])
-		count = count + 1;
-	return (lendest + count);
+	printf("%d\n", strlcat(argv[1], argv[2], 20));
+	printf("%s", argv[1]);
 }
