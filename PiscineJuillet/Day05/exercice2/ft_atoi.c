@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/13 14:40:04 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/16 01:25:25 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/16 01:28:25 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/16 01:29:48 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+int		ft_atoi(char *str)
 {
 	int i;
+	int nb;
+	int sign;
 
+	sign = 1;
 	i = 0;
-	while (str[i])
+	nb = 0;
+	while (str[i] < 33 && str[i])
+		i = i + 1;
+	if (str[i] == '-')
+		sign = -1;
+	if (str[i] == '+')
+		sign = 1;
+	if (str[i] == '+' || str[i] == '-')
+		i = i + 1;
+	while (str[i] >= 48 && str[i] <= 57)
 	{
-		ft_putchar(str[i]);
+		nb = nb * 10 + (str[i] - 48);
 		i = i + 1;
 	}
+	return (sign * nb);
 }

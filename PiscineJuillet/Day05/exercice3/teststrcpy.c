@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   teststrcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/13 14:40:04 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/16 01:25:25 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/16 01:30:28 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/16 02:46:04 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <stdio.h>
+#include <string.h>
 
-void	ft_putstr(char *str)
+int		main()
 {
-	int i;
+	char str1[] = "La pop";
 
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i = i + 1;
-	}
+	printf("%s", str1);
+	strcpy(str1, "Salut ca va ?");
+	printf("%s", str1);
+	return (0);
 }

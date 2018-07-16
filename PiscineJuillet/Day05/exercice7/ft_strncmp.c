@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/13 14:40:04 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/16 01:25:25 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/16 05:50:00 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/16 06:00:52 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <stdio.h>
 
-void	ft_putstr(char *str)
+int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
-	while (str[i])
+	while (s1[i] || s2[i])
 	{
-		ft_putchar(str[i]);
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i = i + 1;
+		if (i >= n)
+			break ;
 	}
+	return (0);
 }

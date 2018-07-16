@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   teststrstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/13 14:40:04 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/16 01:25:25 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/16 03:54:41 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/16 04:01:52 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+int		main()
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i = i + 1;
-	}
+	printf("%s\n", strstr("123bonjour123", "bonjour"));
+	return (0);
 }

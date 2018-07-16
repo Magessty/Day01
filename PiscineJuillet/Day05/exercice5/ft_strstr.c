@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/13 14:40:04 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/16 01:25:25 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/16 03:53:52 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/16 05:47:42 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int i;
+	int count;
+	int count2;
 
-	i = 0;
-	while (str[i])
+	count = 0;
+	while (str[count])
 	{
-		ft_putchar(str[i]);
-		i = i + 1;
+		count2 = 0;
+		while (to_find[count2] == str[count + count2])
+		{
+			if (to_find[count2 + 1] == '\0')
+				return (str + count);
+			count2 = count2 + 1;
+		}
+		count = count + 1;
 	}
+	return (0);
 }
