@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   teststrcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/16 01:30:28 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/16 02:46:04 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/16 08:10:45 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/16 08:19:19 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
-int		main()
+char	*ft_strncat(char *dest, char *src, int nb)
 {
-	char str1[] = "La pop";
+	int count;
+	int lendest;
 
-	printf("%s", str1);
-	strcpy(str1, "Salut ca va ?");
-	printf("%s", str1);
-	return (0);
+	lendest = 0;
+	while (dest[lendest])
+		lendest = lendest + 1;
+	count = 0;
+	while (src[count] && count < nb)
+	{
+		dest[lendest + count] = src[count];
+		count = count + 1;
+	}
+	dest[lendest + count] = '\0';
+	return (dest);
 }
