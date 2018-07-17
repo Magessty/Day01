@@ -6,7 +6,7 @@
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 00:10:34 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/16 11:17:47 by rduquenn         ###   ########.fr       */
+/*   Updated: 2018/07/17 06:59:19 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,53 +17,63 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putstr(char *str)
+int		ft_strcmp(char *s1, char *s2)
 {
-	int count;
+	int i;
+	int n;
 
-	count = 0;
-	while (str[count])
+	i = 0;
+	while (s1[i] || s2[i])
 	{
-		ft_putchar(str[count]);
-		count = count + 1;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i = i + 1;
 	}
+	return (0);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+void	ft_putstr(char **argv, int *argc)
 {
 	int count;
+	int count2;
 
+	count2 = 1;
 	count = 0;
-	while (src[count])
+	while (count2 < *argc)
 	{
-		dest[count] = src[count];
-		count = count + 1;
+		while (argv[count2][count])
+		{
+			ft_putchar(argv[count2][count]);
+			count = count + 1;
+		}
+		count = 0;
+		ft_putchar('\n');
+		count2 = count2 + 1;
 	}
-	dest[count] = src[count];
-	return (0);
 }
 
 int		main(int argc, char **argv)
 {
 	int count;
-	char memory[50];
-	int count2;
 
 	count = 1;
-	while (count < argc)
+	while (count < argc - 1)
 	{
-		if (argv[count + 1][0] < argv[count][0] && argv[count + 1])
+		if (ft_strcmp(argv[count], argv[count + 1]) > 0)
 		{
-			count2 = count;
-			while (argv[count2 + 1][0] < argv[count2][0] && argv[count2 + 1])
+			while (count > 0)
 			{
-				ft_strcpy(memory, argv[count2 + 1]);
-				ft_strcpy(argv[count2 + 1], argv[count2]);
-				ft_strcpy(argv[count2], memory);
-				count2 = count2 + 1;
+				if (ft_strcmp(argv[count], argv[count + 1]) > 0)
+				{
+					argv[0] = argv[count];
+					argv[count] = argv[count + 1];
+					argv[count + 1] = argv[0];
+				}
+				count = count - 1;
 			}
 		}
 		count = count + 1;
 	}
+	ft_putstr(argv, &argc);
 	return (0);
 }

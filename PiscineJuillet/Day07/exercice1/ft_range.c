@@ -1,48 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/13 16:08:07 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/17 07:00:45 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/16 23:10:35 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/17 00:17:35 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+int		*ft_range(int min, int max)
 {
-	write(1, &c, 1);
-}
+	int size;
+	int *tab;
 
-void	ft_putstr(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
+	size = max - min;
+	if (size <= 0)
 	{
-		ft_putchar(str[i]);
-		i = i + 1;
+		return (0);
 	}
-}
-
-int		main(int argc, char **argv)
-{
-	int n;
-
-	n = 0;
-	while (n != argc)
-		n = n + 1;
-	n = n - 1;
-	while (n != 0)
+	tab = (int*)malloc(sizeof(*tab) * size);
+	size = 0;
+	while (min < max)
 	{
-		ft_putstr(argv[n]);
-		if (n != 1)
-			ft_putchar('\n');
-		n = n - 1;
+		tab[size] = min;
+		size = size + 1;
+		min = min + 1;
 	}
-	return (0);
+	return (tab);
 }

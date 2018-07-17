@@ -1,48 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/13 16:08:07 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/17 07:00:45 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/16 22:33:39 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/17 00:25:50 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+char	*ft_strdup(char *src)
 {
-	write(1, &c, 1);
-}
+	char *str;
+	int count;
 
-void	ft_putstr(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
+	count = 0;
+	while (src[count])
 	{
-		ft_putchar(str[i]);
-		i = i + 1;
+		count = count + 1;
 	}
-}
-
-int		main(int argc, char **argv)
-{
-	int n;
-
-	n = 0;
-	while (n != argc)
-		n = n + 1;
-	n = n - 1;
-	while (n != 0)
+	str = (char*)malloc(sizeof(*str) * (count));
+	count = 0;
+	while (src[count])
 	{
-		ft_putstr(argv[n]);
-		if (n != 1)
-			ft_putchar('\n');
-		n = n - 1;
+		str[count] = src[count];
+		count = count + 1;
 	}
-	return (0);
+	str[count] = '\0';
+	return (str);
 }
