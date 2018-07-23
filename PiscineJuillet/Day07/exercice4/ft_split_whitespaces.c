@@ -6,7 +6,7 @@
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 18:04:09 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/18 23:25:09 by rduquenn         ###   ########.fr       */
+/*   Updated: 2018/07/23 05:25:00 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		ft_wordcount(char *str)
 			count = count + 1;
 		nbword = nbword + 1;
 	}
-	return (nbword + 1);
+	return (nbword);
 }
 
 int		ft_charcount(char *str, int i)
@@ -69,7 +69,7 @@ char	**ft_split_whitespaces(char *str)
 	int		i2;
 	int		count3;
 
-	tab = (char**)malloc(sizeof(char*) * (ft_wordcount(str)));
+	tab = (char**)malloc(sizeof(char*) * (ft_wordcount(str) + 1));
 	i = 0;
 	count3 = 0;
 	i2 = 0;
