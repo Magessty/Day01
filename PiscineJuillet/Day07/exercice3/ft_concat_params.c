@@ -6,15 +6,17 @@
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 17:03:27 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/17 17:48:47 by rduquenn         ###   ########.fr       */
+/*   Updated: 2018/07/25 17:55:14 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 int		ft_lenght(int argc, char **argv)
 {
-	int count;
-	int count2;
-	int len;
+	int		count;
+	int		count2;
+	int		len;
 
 	count = 1;
 	count2 = 0;
@@ -23,7 +25,7 @@ int		ft_lenght(int argc, char **argv)
 	{
 		while (argv[count][count2])
 			count2 = count2 + 1;
-		len = len + count2 - 1;
+		len = len + count2;
 		count2 = 0;
 		count = count + 1;
 	}
@@ -32,11 +34,11 @@ int		ft_lenght(int argc, char **argv)
 
 char	*ft_concat_params(int argc, char **argv)
 {
-	int count;
-	int count2;
-	int len;
-	char *str;
-	int count3;
+	int		count;
+	int		count2;
+	int		len;
+	char	*str;
+	int		count3;
 
 	len = ft_lenght(argc, argv);
 	str = (char*)malloc(sizeof(*str) * (len));
@@ -47,8 +49,7 @@ char	*ft_concat_params(int argc, char **argv)
 	{
 		while (argv[count][count2])
 		{
-			str[count3] = argv[count][count2];
-			count2 = count2 + 1;
+			str[count3] = argv[count][count2++];
 			count3 = count3 + 1;
 		}
 		count2 = 0;
@@ -56,5 +57,6 @@ char	*ft_concat_params(int argc, char **argv)
 		if (count < argc)
 			str[count3++] = '\n';
 	}
+	str[count3] = '\0';
 	return (str);
 }

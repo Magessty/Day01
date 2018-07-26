@@ -1,32 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_words_tables.c                            :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/19 00:23:21 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/25 17:49:29 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/25 19:23:00 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/25 19:24:15 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_print_words_table(char **tab)
+void	ft_foreach(int *tab, int lenght, void(*f)(int))
 {
-	int count1;
-	int count2;
 
-	count1 = 0;
-	count2 = 0;
-	while (tab[count1])
-	{
-		while (tab[count1][count2])
-		{
-			ft_putchar(tab[count1][count2]);
-			count2 = count2 + 1;
-		}
-		ft_putchar('\n');
-		count1 = count1 + 1;
-	}
-}

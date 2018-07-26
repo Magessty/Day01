@@ -6,14 +6,16 @@
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 22:33:39 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/17 00:25:50 by rduquenn         ###   ########.fr       */
+/*   Updated: 2018/07/25 17:53:57 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 char	*ft_strdup(char *src)
 {
-	char *str;
-	int count;
+	char	*str;
+	int		count;
 
 	count = 0;
 	while (src[count])

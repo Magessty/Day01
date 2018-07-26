@@ -5,88 +5,84 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rduquenn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/17 18:04:09 by rduquenn          #+#    #+#             */
-/*   Updated: 2018/07/23 05:25:00 by rduquenn         ###   ########.fr       */
+/*   Created: 2018/07/23 18:19:33 by rduquenn          #+#    #+#             */
+/*   Updated: 2018/07/24 18:13:39 by rduquenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_wordcount(char *str)
-{
-	int nbword;
-	int count;
-
-	nbword = 0;
-	count = 0;
-	while (str[count])
-	{
-		while (str[count] == '\n' || str[count] == '\t' || str[count] == ' ')
-			count = count + 1;
-		if (!str[count])
-			return (nbword);
-		while (str[count] != '\n' && str[count] != '\t' && str[count] != ' ' &&
-				str[count])
-			count = count + 1;
-		nbword = nbword + 1;
-	}
-	return (nbword);
-}
-
 int		ft_charcount(char *str, int i)
 {
-	int		nbcharac;
+	int len;
 
-	nbcharac = 0;
-	while (str[i])
+	len = 0;
+	while (str[i] != '\n' && str[i] != '\t' && str[i] != ' ' && str[i])
 	{
-		while (!(str[i] != '\n' && str[i] != '\t' && str[i] != ' ') &&
-				str[i])
-			i = i + 1;
-		while (str[i] != '\n' && str[i] != '\t' && str[i] != ' ' &&
-				str[i])
-		{
-			i = i + 1;
-			nbcharac = nbcharac + 1;
-		}
+		len += 1;
+		i += 1;
 	}
-	return (nbcharac);
+	return (len);
 }
 
-int		ft_switchspaces(int *count2, char *str)
+int		ft_wordcount(char *str)
 {
-	while (str[*count2] == '\n' || str[*count2] == '\t' || str[*count2] == ' ')
-		*count2 = *count2 + 1;
-	if (str[*count2])
-		return (42);
-	return (0);
+	int i1;
+	int i2;
+
+	i2 = 1;
+	i1 = 0;
+	while (*str)
+	{
+		if (*str == '\n' || *str == '\t' || *str == ' ')
+		{
+			str++;
+			i2 = 1;
+		}
+		if (!(*str == '\n' || *str == '\t' || *str == ' ') && *str)
+		{
+			if (i2 == 1)
+			{
+				i1 += 1;
+				i2 = 0;
+			}
+			str++;
+		}
+	}
+	return (i1);
+}
+
+void	init(int *i1, int *i2)
+{
+	*i1 = 0;
+	*i2 = 0;
 }
 
 char	**ft_split_whitespaces(char *str)
 {
 	char	**tab;
-	int		i;
+	int		i1;
 	int		i2;
-	int		count3;
+	int		i3;
 
-	tab = (char**)malloc(sizeof(char*) * (ft_wordcount(str) + 1));
-	i = 0;
-	count3 = 0;
-	i2 = 0;
-	while (str[i2])
+	init(&i1, &i2);
+	if (!(tab = (char**)malloc(sizeof(char*) * (ft_wordcount(str) + 1))))
+		return (0);
+	while (str[i1])
 	{
-		if (ft_switchspaces(&i2, str) != 0)
-			tab[i] = (char*)malloc(sizeof(char) * (ft_charcount(str, i2) + 1));
-		while (str[i2] != '\n' && str[i2] != '\t' && str[i2] != ' ' &&
-				str[i2] != 0)
+		while (str[i1] == '\n' || str[i1] == '\t' || str[i1] == ' ')
+			i1 += 1;
+		if (str[i1])
 		{
-			tab[i][count3] = str[i2];
-			count3 = count3 + 1;
-			i2 = i2 + 1;
+			i3 = 0;
+			if (!(tab[i2] = (char*)malloc(ft_charcount(str, i1) + 1)))
+				return (0);
+			while (str[i1] != '\n' && str[i1] != '\t' && str[i1] != ' ' &&
+					str[i1])
+				tab[i2][i3++] = str[i1++];
+			tab[i2++][i3] = '\0';
 		}
-		count3 = 0;
-		i = i + 1;
 	}
-	tab[i] = 0;
+	tab[i2] = 0;
 	return (tab);
 }
